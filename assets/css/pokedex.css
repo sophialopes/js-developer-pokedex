@@ -1,6 +1,6 @@
 .pokemons {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -22,7 +22,7 @@
     background-color: #678fee;
 }
 
-.electric {
+.eletric {
     background-color: #f7cf2e;
 }
 
@@ -43,7 +43,7 @@
 }
 
 .fighting {
-    background-color: #bf3029;
+    background-color: #df3029;
 }
 
 .psychic {
@@ -106,7 +106,7 @@
     justify-content: space-between;
 }
 
-.pokemon .detail .types {
+.pokemons .detail .type {
     padding: 0;
     margin: 0;
     list-style: none;
@@ -117,9 +117,9 @@
     padding: .25rem .5rem;
     margin: .25rem 0;
     font-size: .625rem;
-    border-radius: 1rem;
+    border-radius: 1rem;  
     filter: brightness(1.1);
-    text-align: center;
+    text-align: center; 
 }
 
 .pokemon .detail img {
@@ -148,7 +148,7 @@
 
 @media screen and (min-width: 380px) {
     .pokemons {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr 1fr ;
     }
 }
 
