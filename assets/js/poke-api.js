@@ -1,12 +1,12 @@
 
 const pokeApi = {}
 
-function convertPokeApiDetailToPokemon(pokeDetail) {
+function convertPokeApiDetailToPokemon(pokiDetail) {
     const pokemon = new Pokemon()
-    pokemon.number = pokeDetail.id
+    pokemon.number = pokiDetail.order
     pokemon.name = pokeDetail.name
 
-    const types = pokeDetail.types.map((typeSlot) => typeSlot.type.name)
+    const types = pokeDetail.types.map((typesSlot) => typesSlot.type.name)
     const [type] = types
 
     pokemon.types = types
@@ -17,10 +17,10 @@ function convertPokeApiDetailToPokemon(pokeDetail) {
     return pokemon
 }
 
-pokeApi.getPokemonDetail = (pokemon) => {
+pokeApi.getPokemonsDetail = (pokemon) => {
     return fetch(pokemon.url)
-        .then((response) => response.json())
-        .then(convertPokeApiDetailToPokemon)
+    .then((response) => response.json())
+    .then(convertPokeApiDetailToPokemon)
 }
 
 pokeApi.getPokemons = (offset = 0, limit = 5) => {
@@ -29,7 +29,7 @@ pokeApi.getPokemons = (offset = 0, limit = 5) => {
     return fetch(url)
         .then((response) => response.json())
         .then((jsonBody) => jsonBody.results)
-        .then((pokemons) => pokemons.map(pokeApi.getPokemonDetail))
-        .then((detailRequests) => Promise.all(detailRequests))
+        .then((pokemons) => pokemons.map(pokeApi.getPokemonsDetail))
+        .then((detailRequets) => Promise.all(detailRequets))
         .then((pokemonsDetails) => pokemonsDetails)
-}
+        }
